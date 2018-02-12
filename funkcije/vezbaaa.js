@@ -1,3 +1,4 @@
+"use strict";
 function isAString(a) {
     var check;
     if (typeof a === "string") {

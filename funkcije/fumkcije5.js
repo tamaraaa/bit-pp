@@ -1,3 +1,4 @@
+"use strict";
 var t = "How many times do A appear in TAMARA?";
 function calc(str){
     var counter = 0;

@@ -1,3 +1,4 @@
+"use strict";
 function isItBlank(a) {
     var check;
     if (a === " ") {
