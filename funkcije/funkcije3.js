@@ -1,3 +1,4 @@
+"use strict";
 var t = [3,4,3,2,4,5,3];
 function calc (arr,num){
    var counter= 0;

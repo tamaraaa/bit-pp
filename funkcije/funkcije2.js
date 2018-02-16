@@ -1,3 +1,4 @@
+"use strict";
 function calc (a){
    var str = "" + a;
    var result= str.length;

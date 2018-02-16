@@ -1,3 +1,4 @@
+"use strict"
 function num(a){
     var stars="";
 
