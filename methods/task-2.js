@@ -5,10 +5,10 @@ function oddElements(arr) {
         if (arr[i] % 2 !== 0) {
             result = true;
         }
-    }
+    } 
     return result;
 }
-console.log(oddElements([6, 2, 8, 2, 3]));
+console.log(oddElements([6, 2, 8, 2,3,5]));
 
 // function biggerThenMiddle(arr) {
 //     var c = 0;
