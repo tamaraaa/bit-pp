@@ -4,20 +4,22 @@
     function Person(name, surname) {
         this.name = name;
         this.surname = surname;
-        this.getData = function () {
-            return name + " " + surname 
-            
-        }
+       
+    }
+    Person.prototype.getData = function () {
+        return this.name + " " + this.surname 
+        
     }
 
     function Seat(number, category) {
         this.number = number || Math.floor((Math.random() * (100 - 10) + 1) + 10);
         this.category = category || "E";
-        this.getData = function (){
-            return this.number + ", " + this.category;
-        }
+       
 
 
+    }
+    Seat.prototype.getData = function (){
+        return this.number + ", " + this.category;
     }
 
     function Passenger(person, seat) {
@@ -35,9 +37,10 @@
         this.relation = relation;
         this.date = date;
         this.listOfPasenger = [];
-        this.getData= function (){
-            return this.date + " " + this.relation
-        }
+       
+    }
+    Flight.prototype.getData= function (){
+        return this.date + " " + this.relation
     }
 
     function Airport(name, listOfFlight) {
