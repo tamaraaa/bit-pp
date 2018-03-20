@@ -1,47 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {Header} from './partials/Header'
-import {Footer} from './partials/Footer'
-import {Users}  from '../users/Users'
+import React from 'react';
+import {Header} from './partials/Header';
+import UserItem from './users/UserItem';
+import UserList from './users/UserList';
+import { userService } from '../service/UserService';
 
-const Main = (props) => {
-  const { dataMain } = props
-  console.log(dataMain)
-  return (
-    
-      <div className="container"> <ul className="collection">
-          {
-              dataMain.map((user,index) => {
-                  return <User dataUser={user} key={index} />
-              })
-          }
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      users: []
+    }
+    console.log("constructor");
+  }
 
-      </ul>
-      </div>
-  )
+  componentDidMount() {
+    console.log("componentDidMount");
+    userService.fetchUsers()
+      .then((userList) => {
+        this.setState({ users: userList })
+      })
+  }
+
+  render() {
+    console.log("render");
+    return (
+      <React.Fragment>
+        <Header title="React users" />
+        <div className="container">
+          <UserList users={this.state.users} />
+        </div>
+      </React.Fragment>
+    );
+  }
 }
-
-
-
-
-
-
-
-
-const App = (props) => {
-  // const { data } = props
-  console.log(props.data);
-  
-  return (
-      <div>
-          <Header />
-          <Main dataMain={props.data} />
-          <Footer />
-      </div>
-
-  )
-}
-
-
 export default App;
