@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import UserItem from './UserItem';
+import UserCard from './UserCard'
 
-const UserList = (props) => {
+const UserList = ({users,view}) => {
     
-    const {users} = props;
 
-    const renderUsers = (users) => {
-        return users.map((user, index) => {
-            return <UserItem key={index} user={user} />
-        })
+    const renderUsers = () => {
+        if(view === 'list') return users.map((user, index) => <UserItem key={index} user={user} />)
+    
+        else return users.map((user, index) => <UserCard key={index} user={user} />) 
     }
 
     return (
         <ul className="collection">
-            {renderUsers(users)}
+            {renderUsers()}
         </ul>
     )
 }

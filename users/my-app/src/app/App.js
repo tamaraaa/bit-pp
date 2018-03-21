@@ -3,31 +3,35 @@ import {Header} from './partials/Header';
 import UserItem from './users/UserItem';
 import UserList from './users/UserList';
 import { userService } from '../service/UserService';
+import './style.css'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      users: []
-    }
-    console.log("constructor");
-  }
+    state = {users: [], view :'list'}
 
-  componentDidMount() {
-    console.log("componentDidMount");
+fetchUsers = () => {
     userService.fetchUsers()
-      .then((userList) => {
-        this.setState({ users: userList })
-      })
-  }
+    .then((userList) => {
+      this.setState({ users: userList })
+    })
+}
 
-  render() {
-    console.log("render");
+componentDidMount() {
+   this.fetchUsers()
+  }
+ 
+toggleView = (view) => {
+     this.setState({view})
+}
+reloadUsers = () => {
+    this.fetchUsers()
+}
+
+render() {
     return (
       <React.Fragment>
-        <Header title="React users" />
+        <Header toggleView={this.toggleView} view={this.state.view} reloadUsers={this.reloadUsers}/>
         <div className="container">
-          <UserList users={this.state.users} />
+          <UserList users={this.state.users} view={this.state.view} />
         </div>
       </React.Fragment>
     );
