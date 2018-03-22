@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
+// import {fetchService} from '../services/fetchService'
+// import {MovieList} from './movies/MovieList'
 
 export const MovieItem = (props) => {
     const movie = props.name
-    console.log(movie);
+    const picture = props.img
+    // console.log(movie);
     
     return (
-      <div className="container">
-        <div className="card" style={{ width: 18 + 'rem' }}>
-          <img className="card-img-top" src="..." alt="Card image cap" />
+      
+     
+      
+        <div className="card">
+           <img className="card-img-top" src={picture} alt="Card image cap" /> 
           <div className="card-body">
             <p className="card-text">{movie}</p>
           </div>
-        </div>
       </div>
+        
+      
     )
   }

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {MovieItem} from './MovieItem'
+import {fetchService} from '../../services/fetchService'
 
 export const MovieList = (props) => {
-    const movie = props.data
-    console.log(movie);
-    
-    
+    const shows = props.shows
+    console.log(shows)
     return (
-     movie.map((element,index)=><MovieItem name={element} key={index}/>)
+      shows.map((show) => <MovieItem name={show.title} img={show.img} summary={show.summary} key={show.id} />)
     )
   }
